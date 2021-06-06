@@ -1,0 +1,266 @@
+@charset "UTF-8";
+/* Roozbeh Eslami */
+/* www.roozbeheslami.com */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,800|Raleway:300,400,500,700,800');
+@import '../fonts/font-awesome/scss/fontawesome.scss';
+
+$f-rb: "Roboto", Tahoma, sans-serif;
+$f-rw: "Raleway", Tahoma, sans-serif;
+
+$cw: #ffffff;
+$cb: #000000;
+$cg: #3b3b3b;
+$c1: #FFEB00;
+
+$sm: 575px;
+$md: 767px;
+$lg: 991px;
+$xl: 1199px;
+
+@mixin res($media) {
+    
+    @if $media == sm {
+        @media only screen and (max-width: $sm) {
+            @content;
+        }
+    }
+    
+    @else if $media == md {
+        @media only screen and (max-width: $md) {
+            @content;
+        }
+    }
+    
+    @else if $media == lg {
+        @media only screen and (max-width: $lg) {
+            @content;
+        }
+    }
+
+    @else if $media == xl {
+        @media only screen and (max-width: $xl) {
+            @content;
+        }
+    }
+    
+    @else {
+        @media only screen and (max-width: $media) {
+            @content;
+        }
+    }
+}
+
+/*////////////////////// GENERAL //////////////////////*/
+
+* {
+    outline: none!important;
+    padding: 0px; 
+}
+
+html {
+    direction: ltr;
+    height: 100%;
+}
+
+body {
+    direction: ltr;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: $f-rb;
+    overflow-y: scroll;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover,
+    &:focus,
+    &:visited {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+}
+
+li {
+    list-style-type: none;
+}
+
+i {
+    vertical-align: middle;
+}
+
+.hideme {
+    opacity: 0;
+}
+
+.showme {
+    opacity: 1;
+}
+
+.section {
+    padding-top:70px;
+    padding-bottom: 50px;
+
+    @include res(lg) {
+        padding-top: 80px;
+        padding-bottom: 50px;
+    }
+
+    .title {
+        text-align: center;
+    
+        .inner {
+            position: relative;
+            display: inline-block; 
+            font-family: $f-rw;
+            font-size: 40px;
+            color: $cg;
+            margin-bottom: 50px;
+            transition: 0.3s;
+            border-radius: 5px;
+            padding-left: 60px;
+            letter-spacing: 4px;
+    
+            &:before {
+                content: "";
+                position: absolute;
+                width: 50px;
+                height: 2px;
+                bottom: 0;
+                left: 60px;
+                background: $cg;
+                transition: 0.2s;
+            }
+
+            i {
+                position: absolute;
+                bottom: 10px;
+                left: 0px;
+                transition: 0.3s;
+            }
+
+            @include res(lg) {
+                font-size: 30px;
+            }
+
+            @include res(md) {
+                font-size: 22px;
+                letter-spacing: 2px;
+                padding-left: 50px;
+                margin-bottom: 30px;
+
+                &:before {
+                    width: 40px;
+                    height: 1px;
+                    left: 50px;
+                }
+
+                i {
+                    font-size: 26px;
+                    bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+.modal {
+
+    @include res(md) {
+        padding-right: 0!important;
+    }
+
+        .modal-dialog {
+            -webkit-transform: translate(0,0);
+            transform: translate(0,0);
+        }
+
+    .modal-content {
+        padding: 5px 15px 0 15px;
+    }
+
+    .modal-header,
+    .modal-footer {
+        border: none!important;
+    }
+}
+            
+.btn-main {
+    display: inline-block;
+    cursor: pointer;
+    background: #f7f7f7;
+    color: $cg;
+    border: none;
+    padding: 15px 25px 12px 25px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 6px 0 rgba(0,0,0,0.1), inset 1px 2px 0 0 #FFFFFF;
+    transition: 0.2s;
+    margin-top: 15px;
+
+    &:hover {
+        background: $c1;
+        box-shadow: 2px 3px 6px rgba(0,0,0,0.15), inset 1px 2px 0 0 #FFFFFF;
+    }
+
+    &:active {
+        box-shadow: 2px 2px 1px 0 rgba(0,0,0,0.1), inset 1px 2px 0 0 #FFFFFF;
+    }
+
+    @include res(md) {
+        width: 100%;
+    }
+
+    i {
+        vertical-align: baseline;
+        padding-right: 10px;
+    }
+}
+
+.contact {
+    .form {
+        .inner {
+            padding-right: 0;
+
+            @include res(lg) {
+                padding: 0;
+            }
+
+            .form-group {
+                margin-bottom: 12px!important;
+
+                .form-control {
+                    padding: 20px 15px;
+
+                    &:focus {
+                        border: 1px solid $cg!important;
+                        box-shadow: none!important;
+                    }
+                }
+                
+
+                input {
+                    height: 60px;
+
+                    @include res(md) {
+                        height: 45px;
+                    }
+                }
+
+                textarea {
+                    height: 200px;
+                    min-height: 200px;
+                    max-height: 400px;
+                    resize: vertical;
+
+                    @include res(md) {
+                        height: 150px;
+                        min-height: 150px;
+                    }
+                }
+            }
+        }
+    }
+}
